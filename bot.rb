@@ -36,7 +36,7 @@ dir = File.dirname(__FILE__)
 bot.game = "with cows! 💕"
 
 @channel = bot.find_channel('bottest', 'buffalowave')
-bot.voice_connect(@channel[0], encrypted = true)
+bot.voice_connect(@channel[0])
 
 bot.voice.play_file("#{dir}/sounds/ready.wav")
 bot.voice.speaking = false
@@ -112,7 +112,7 @@ bot.message(with_text: "join") do |event|
   @findserver = event.content.split[2]
   @channel = bot.find_channel(@findchannel, @findserver)
   bot.voice.destroy
-  bot.voice_connect(@channel[0], encrypted = true)
+  bot.voice_connect(@channel[0])
   bot.debug("bot joined voice Channel #{@channel[0]}")
 end
 
