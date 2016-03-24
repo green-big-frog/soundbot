@@ -106,7 +106,7 @@ bot.message(with_text: "leave") do |event|
   bot.debug("bot left voice Channel #{@channel[0]}")
 end
 
-bot.message(with_text: "join") do |event|
+bot.message(contains: "join") do |event|
   bot.debug("test")
   @findchannel = event.content.split[1]
   @findserver = event.content.split[2]
