@@ -117,7 +117,7 @@ bot.message(contains: "!join") do |event|
     puts "Requested voice channel does not exist"
   end
   bot.voice.destroy
-  bot.voice_connect(@channel[0])
+  bot.voice_connect(@channel.find { |e| e.type == 'voice' })
   bot.debug("bot joined voice Channel #{@channel[0]}")
 end
 
