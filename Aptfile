@@ -1,5 +1,4 @@
 libopus0
-libsodium-dev
 opus-tools
 git
 make
