@@ -36,6 +36,9 @@ dir = File.dirname(__FILE__)
 bot.game = "with cows! 💕"
 
 @channel = bot.find_channel('bottest', 'buffalowave')
+if @channel[0] == nil
+  puts "Requested voice channel does not exist"
+end
 bot.voice_connect(@channel[0])
 
 bot.voice.play_file("#{dir}/sounds/ready.wav")
@@ -106,13 +109,16 @@ bot.message(with_text: "leave") do |event|
   bot.debug("bot left voice Channel #{@channel[0]}")
 end
 
-bot.message(contains: "join") do |event|
-  bot.debug("test")
+bot.message(contains: "!join") do |event|
   @findchannel = event.content.split[1]
   @findserver = event.content.split[2]
   @channel = bot.find_channel(@findchannel, @findserver)
+  channel = @channel.find { |e| e.type == 'voice' }
+  if channel == nil
+    puts "Requested voice channel does not exist"
+  end
   bot.voice.destroy
-  bot.voice_connect(@channel[0])
+  bot.voice_connect(channel)
   bot.debug("bot joined voice Channel #{@channel[0]}")
 end
 
