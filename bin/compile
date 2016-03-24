@@ -1,2 +1,4 @@
 #!/bin/bash
-echo""
+$ ./configure
+$ make && make check
+make install
