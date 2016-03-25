@@ -39,7 +39,7 @@ dir = File.dirname(__FILE__)
 bot.game = "with cows! 💕"
 
 @channel = bot.find_channel('bottest', 'buffalowave')
-if @channel[0] == nil
+if @channel.find { |e| e.type == 'voice' }
   puts "Requested voice channel does not exist"
 end
 bot.voice_connect(@channel[0])
@@ -116,7 +116,7 @@ bot.message(contains: "!join") do |event|
   @findchannel = event.content.split[1]
   @findserver = event.content.split[2]
   @channel = bot.find_channel(@findchannel, @findserver)
-  if @channel[0] == nil
+  if @channel.find { |e| e.type == 'voice' } == nil
     puts "Requested voice channel does not exist"
   end
   bot.voice_connect(@channel.find { |e| e.type == 'voice' })
