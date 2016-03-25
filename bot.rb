@@ -113,15 +113,16 @@ bot.message(with_text: "leave") do |event|
 end
 
 bot.message(contains: "!join") do |event|
-  @findchannel = event.content.split[1]
-  @findserver = event.content.split[2]
-  @channel = bot.find_channel(@findchannel, @findserver)
-  if @channel.find { |e| e.type == 'voice' } == nil
-    puts "Requested voice channel does not exist"
+  if event.author == admin
+    @findchannel = event.content.split[1]
+    @findserver = event.content.split[2]
+    @channel = bot.find_channel(@findchannel, @findserver)
+    if @channel.find { |e| e.type == 'voice' } == nil
+      puts "Requested voice channel does not exist"
+    end
+    bot.voice_connect(@channel.find { |e| e.type == 'voice' })
+    event.respond("bot joined voice Channel #{@channel[0]}")
   end
-  bot.voice_connect(@channel.find { |e| e.type == 'voice' })
-  bot.debug("bot joined voice Channel #{@channel[0]}")
-  event.respond("bot joined voice Channel #{@channel[0]}")
 end
 
 bot.sync
