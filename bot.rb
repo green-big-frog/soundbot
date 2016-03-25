@@ -121,6 +121,7 @@ bot.message(contains: "!join") do |event|
   bot.voice.destroy
   bot.voice_connect(@channel.find { |e| e.type == 'voice' })
   bot.debug("bot joined voice Channel #{@channel[0]}")
+  event.respond("bot joined voice Channel #{@channel[0]}")
 end
 
 bot.sync
