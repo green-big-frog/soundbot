@@ -1,3 +1,5 @@
+::RBNACL_LIBSODIUM_GEM_LIB_PATH=File.dirname(__FILE__)/lib/libsodium.so 
+
 require 'rubygems'
 require 'bundler/setup'
 
