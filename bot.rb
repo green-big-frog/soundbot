@@ -16,7 +16,7 @@ admin = ENV["ADMIN"] ||= raise("Please set AdminVar to the ID of the Bot Owner")
 # binding.pry
 bot = Discordrb::Bot.new(email, password)
 
-bot.debug = true
+# bot.debug = true
 
 bot.message(with_text: "invite") do |event|
   if event.author == admin
