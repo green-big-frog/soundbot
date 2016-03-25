@@ -1,10 +1,10 @@
-::RBNACL_LIBSODIUM_GEM_LIB_PATH=File.dirname(__FILE__)/lib/libsodium.so 
-
 require 'rubygems'
 require 'bundler/setup'
 
 require 'discordrb'
 # require 'pry'
+
+::RBNACL_LIBSODIUM_GEM_LIB_PATH=File.dirname(__FILE__)/lib/libsodium.so 
 
 email = ENV["EMAIL"] ||= raise("Please set EmailVar!")
 password = ENV["PASSWORD"] ||= raise("Please set PasswordVar!")
