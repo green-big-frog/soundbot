@@ -36,7 +36,7 @@ bot.run :async
 
 dir = File.dirname(__FILE__)
 
-bot.game = "with cows! 💕"
+bot.game = "with cows! 🐄 💕"
 
 @channel = bot.find_channel('bottest', 'buffalowave')
 if @channel.find { |e| e.type == 'voice' }
