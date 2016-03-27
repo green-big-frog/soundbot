@@ -18,7 +18,7 @@ bot = Discordrb::Bot.new(email, password)
 
 bot.debug = true
 
-bot.message(with_text: "invite") do |event|
+bot.message(with_text: "!invite") do |event|
   if event.author == admin
     event.respond("Yay! #{event.user.mention} is a good boy/girl!")
   else
@@ -49,57 +49,57 @@ bot.voice.speaking = false
 
 
 
-bot.message(with_text: "awesome") do |event|
+bot.message(with_text: "!awesome") do |event|
   bot.voice.play_file("#{dir}/sounds/awesome.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "aah") do |event|
+bot.message(with_text: "!aah") do |event|
   bot.voice.play_file("#{dir}/sounds/aah.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "coughs") do |event|
+bot.message(with_text: "!coughs") do |event|
   bot.voice.play_file("#{dir}/sounds/coughs.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "gameover") do |event|
+bot.message(with_text: "!gameover") do |event|
   bot.voice.play_file("#{dir}/sounds/gameover.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "gameover2") do |event|
+bot.message(with_text: "!gameover2") do |event|
   bot.voice.play_file("#{dir}/sounds/gameover2.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "muffintime") do |event|
+bot.message(with_text: "!muffintime") do |event|
   bot.voice.play_file("#{dir}/sounds/muffintime.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "oh my gosh") do |event|
+bot.message(with_text: "!oh my gosh") do |event|
   bot.voice.play_file("#{dir}/sounds/oh-my-gosh.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "omg") do |event|
+bot.message(with_text: "!omg") do |event|
   bot.voice.play_file("#{dir}/sounds/omg.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "thunder") do |event|
+bot.message(with_text: "!thunder") do |event|
   bot.voice.play_file("#{dir}/sounds/thunder.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "wolves") do |event|
+bot.message(with_text: "!wolves") do |event|
   bot.voice.play_file("#{dir}/sounds/wolves.mp3")
   bot.voice.speaking = false
 end
 
-bot.message(with_text: "wow") do |event|
+bot.message(with_text: "!wow") do |event|
   bot.voice.play_file("#{dir}/sounds/wow.mp3")
   bot.voice.speaking = false
 end
@@ -107,7 +107,7 @@ end
 
 
 
-bot.message(with_text: "leave") do |event|
+bot.message(with_text: "!leave") do |event|
   bot.voice.destroy
   bot.debug("bot left voice Channel #{@channel[0]}")
 end
